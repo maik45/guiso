@@ -1,0 +1,16 @@
+#contenedor-args-busqueda input, #contenedor-args-busqueda select{
+	display: inline;
+}
+
+.text-blue{
+	color: #337ab7;
+}
+
+tr.elegido{
+	background-color: #ff9999;
+}
+
+.td_data, td{
+	font-size: small;
+	font-weight: 900;
+}

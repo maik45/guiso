@@ -1,0 +1,74 @@
+div#contenedor label, div#contenedor li, div#contenedor h5, div#contenedor p, div#contenedor td, div#contenedor th{
+  color: #337ab7;
+  font-weight: 300;
+}
+
+div.tab-content{
+  padding-top: 2em;
+}
+
+div.td_data{
+  min-height: 1em;
+}
+
+div.tab-content div.row{
+  padding: 0.5em 1em;
+}
+
+div#contenedor-cantidades input{
+  float: right;
+}
+
+
+.mt-20-px{
+  margin-top: 20px;
+}
+
+.overflow-y{
+  overflow-y: auto;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.bg-coral{
+  background-color: #EE7561 !important;
+  border-color: #cc4c36 !important;
+}
+
+.bg-blue{
+  background-color: #2E519F !important;
+  border-color: navy !important;
+}
+
+.text-white{
+    color: white !important;
+}
+.text-dark{
+    color: black !important;
+}
+.text-blue{
+color: #337ab7 !important;
+}
+.mt-1{
+margin-top: 1rem;
+}
+.mb-1{
+margin-bottom: 1rem;
+}
+.m-1{
+margin: 1rem;
+}
+.mx-1{
+margin-left: 1rem;
+margin-right: 1rem;
+}
+.my-1{
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+.swal2-popup {
+font-size: 1.6rem !important;
+}

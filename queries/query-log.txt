@@ -1,0 +1,248 @@
+->DESCRIBE precioprov<-
+->SELECT id FROM ( ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo ) INNER JOIN proveedor ON proveedor.idProveedor = precioprov.proveedor )<-
+->DESCRIBE precioprov<-
+->DESCRIBE precioprov<-
+->SELECT precioprov.id AS Clave, precioprov.precio AS Precio, precioprov.unidadA AS Presentación, precioprov.factor AS Unidades, articulo.nombre AS 'Nombre del artículo', proveedor.nombre AS 'Nombre del proveedor' FROM ( ( precioprov INNER JOIN articulo ON articulo.idArticulo = precioprov.articulo )  INNER JOIN proveedor ON proveedor.idProveedor = precioprov.proveedor )  ORDER BY 'Clave' LIMIT 0, 5<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor FROM proveedor<-
+->DESCRIBE proveedor<-
+->DESCRIBE proveedor<-
+->SELECT COUNT( * ) AS contador FROM proveedor <-
+->SELECT idProveedor, nombre, pago, tipo, direccion, telefono, rfc, correo, contacto, ciudad, estado, info, cp FROM proveedor ORDER BY idProveedor LIMIT 0, 5<-
+->DESCRIBE proveedor<-
+->SELECT COUNT( * ) AS contador FROM proveedor WHERE idProveedor LIKE  '%r%' OR nombre LIKE '%r%' <-
+->SELECT idProveedor, nombre, pago, tipo, direccion, telefono, rfc, correo, contacto, ciudad, estado, info, cp FROM proveedor WHERE idProveedor LIKE  '%r%' OR nombre LIKE '%r%' ORDER BY idProveedor LIMIT 0, 5<-
+->DESCRIBE proveedor<-
+->SELECT COUNT( * ) AS contador FROM proveedor WHERE idProveedor LIKE  '%ry%' OR nombre LIKE '%ry%' <-
+->SELECT idProveedor, nombre, pago, tipo, direccion, telefono, rfc, correo, contacto, ciudad, estado, info, cp FROM proveedor WHERE idProveedor LIKE  '%ry%' OR nombre LIKE '%ry%' ORDER BY idProveedor LIMIT 0, 5<-
+->DESCRIBE proveedor<-
+->SELECT COUNT( * ) AS contador FROM proveedor WHERE idProveedor LIKE  '%ryc%' OR nombre LIKE '%ryc%' <-
+->SELECT idProveedor, nombre, pago, tipo, direccion, telefono, rfc, correo, contacto, ciudad, estado, info, cp FROM proveedor WHERE idProveedor LIKE  '%ryc%' OR nombre LIKE '%ryc%' ORDER BY idProveedor LIMIT 0, 5<-
+->DESCRIBE proveedor<-
+->SELECT COUNT( * ) AS contador FROM proveedor <-
+->SELECT idProveedor, nombre, pago, tipo, direccion, telefono, rfc, correo, contacto, ciudad, estado, info, cp FROM proveedor ORDER BY idProveedor LIMIT 0, 5<-
+->DESCRIBE proveedor<-
+->SELECT COUNT( * ) AS contador FROM proveedor <-
+->SELECT idProveedor, nombre, pago, tipo, direccion, telefono, rfc, correo, contacto, ciudad, estado, info, cp FROM proveedor ORDER BY idProveedor LIMIT 0, 5<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE articulo<-
+->SELECT idArticulo, nombre FROM articulo ORDER BY nombre<-
+->DESCRIBE precioprov<-
+->SELECT unidad, unidadA, factor, info FROM articulo WHERE idArticulo = ''<-
+->SELECT precio FROM precioprov WHERE proveedor = 3 AND articulo = '' AND activo = 1<-
+->DESCRIBE articulo<-
+->SELECT idArticulo, nombre FROM articulo ORDER BY nombre<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE precioprov<-
+->SELECT unidad, unidadA, factor, info FROM articulo WHERE idArticulo = '5002'<-
+->SELECT precio FROM precioprov WHERE proveedor = 5 AND articulo = '5002' AND activo = 1<-
+->SELECT articulo.* FROM articulo WHERE articulo.idArticulo='5002'<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE articulo<-
+->SELECT idArticulo, nombre FROM articulo ORDER BY nombre<-
+->DESCRIBE precioprov<-
+->SELECT unidad, unidadA, factor, info FROM articulo WHERE idArticulo = ''<-
+->SELECT precio FROM precioprov WHERE proveedor = 3 AND articulo = '' AND activo = 1<-
+->DESCRIBE articulo<-
+->SELECT idArticulo, nombre FROM articulo ORDER BY nombre<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE precioprov<-
+->SELECT unidad, unidadA, factor, info FROM articulo WHERE idArticulo = '10118'<-
+->SELECT precio FROM precioprov WHERE proveedor = 6 AND articulo = '10118' AND activo = 1<-
+->SELECT articulo.* FROM articulo WHERE articulo.idArticulo='10118'<-
+->DESCRIBE articulo<-
+->SELECT idArticulo, nombre FROM articulo ORDER BY nombre<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE precioprov<-
+->SELECT unidad, unidadA, factor, info FROM articulo WHERE idArticulo = '10710'<-
+->SELECT precio FROM precioprov WHERE proveedor = 17 AND articulo = '10710' AND activo = 1<-
+->SELECT articulo.* FROM articulo WHERE articulo.idArticulo='10710'<-
+->DESCRIBE precioprov<-
+->SELECT unidad, unidadA, factor, info FROM articulo WHERE idArticulo = '10492'<-
+->SELECT precio FROM precioprov WHERE proveedor = 17 AND articulo = '10492' AND activo = 1<-
+->SELECT articulo.* FROM articulo WHERE articulo.idArticulo='10492'<-
+->DESCRIBE precioprov<-
+->SELECT unidad, unidadA, factor, info FROM articulo WHERE idArticulo = '10710'<-
+->SELECT precio FROM precioprov WHERE proveedor = 17 AND articulo = '10710' AND activo = 1<-
+->SELECT articulo.* FROM articulo WHERE articulo.idArticulo='10710'<-
+->DESCRIBE precioprov<-
+->SELECT count(id) AS cont FROM precioprov WHERE proveedor = 17 AND  articulo = '10710'<-
+->INSERT INTO precioprov (proveedor, articulo, precio, info, fecha, activo) VALUES ( 17, '10710', 10, '', '2019-12-18 00:00:00', 1)<-
+->INSERT INTO precioprovbit (proveedor, articulo, precio, fecha) VALUES ( 17, '10710', 10, '2019-12-18 00:00:00')<-
+->SELECT MIN(precio) AS min_precio FROM precioprov WHERE articulo = '10710' AND activo = 1<-
+->UPDATE articulo SET costo = 10, fechaMod = '2019-12-18 00:00:00'WHERE idArticulo = '10710'<-
+->DESCRIBE precioprov<-
+->SELECT id FROM ( ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo ) INNER JOIN proveedor ON proveedor.idProveedor = precioprov.proveedor )<-
+->DESCRIBE precioprov<-
+->DESCRIBE precioprov<-
+->SELECT precioprov.id AS Clave, precioprov.precio AS Precio, precioprov.unidadA AS Presentación, precioprov.factor AS Unidades, articulo.nombre AS 'Nombre del artículo', proveedor.nombre AS 'Nombre del proveedor' FROM ( ( precioprov INNER JOIN articulo ON articulo.idArticulo = precioprov.articulo )  INNER JOIN proveedor ON proveedor.idProveedor = precioprov.proveedor )  ORDER BY 'Clave' LIMIT 0, 5<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->DESCRIBE cliente<-
+->SELECT idCliente, nombre FROM cliente ORDER BY nombre<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 4<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 4<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT 
+	    id, 
+	    idOC, 
+	    fecha, 
+	    fechaI, 
+	    fechaF, 
+	    (SELECT nombre FROM cliente WHERE idCliente = cliente LIMIT 1) AS cliente, 
+	    status, 
+	    (SELECT nombre FROM usuario WHERE idUser = ocm.usuario LIMIT 1) AS usuario
+	    FROM ocm WHERE 1 AND fecha > '2018-12-18' ORDER BY idoc DESC<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->DESCRIBE cliente<-
+->SELECT idCliente, nombre FROM cliente ORDER BY nombre<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 9<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 9<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-51-2290' AND proveedor = 14 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='14'<-
+->SELECT precioprov.precio, articulo.idArticulo, articulo.nombre, articulo.unidad, articulo.unidadA, articulo.factor, articulo.linea FROM ( precioprov INNER JOIN articulo ON articulo.idArticulo = precioprov.articulo )  WHERE precioprov.articulo='1032' AND precioprov.proveedor='14'<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT 
+	    id, 
+	    idOC, 
+	    fecha, 
+	    fechaI, 
+	    fechaF, 
+	    (SELECT nombre FROM cliente WHERE idCliente = cliente LIMIT 1) AS cliente, 
+	    status, 
+	    (SELECT nombre FROM usuario WHERE idUser = ocm.usuario LIMIT 1) AS usuario
+	    FROM ocm WHERE 1 AND fecha > '2018-12-27' ORDER BY idoc DESC<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 3 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->DESCRIBE cliente<-
+->SELECT idCliente, nombre FROM cliente ORDER BY nombre<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 17<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 17<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 3 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->SELECT precioprov.precio, articulo.idArticulo, articulo.nombre, articulo.unidad, articulo.unidadA, articulo.factor, articulo.linea FROM ( precioprov INNER JOIN articulo ON articulo.idArticulo = precioprov.articulo )  WHERE precioprov.articulo='2006' AND precioprov.proveedor='3'<-
+->DESCRIBE cliente<-
+->SELECT idCliente, nombre FROM cliente ORDER BY nombre<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 17<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 17<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 3 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 3 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->DESCRIBE cliente<-
+->SELECT idCliente, nombre FROM cliente ORDER BY nombre<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 17<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 17<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 1<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 1<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 3 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->SELECT precioprov.precio, articulo.idArticulo, articulo.nombre, articulo.unidad, articulo.unidadA, articulo.factor, articulo.linea FROM ( precioprov INNER JOIN articulo ON articulo.idArticulo = precioprov.articulo )  WHERE precioprov.articulo='2006' AND precioprov.proveedor='3'<-
+->SELECT precioprov.precio, articulo.idArticulo, articulo.nombre, articulo.unidad, articulo.unidadA, articulo.factor, articulo.linea FROM ( precioprov INNER JOIN articulo ON articulo.idArticulo = precioprov.articulo )  WHERE precioprov.articulo='Elija una opción' AND precioprov.proveedor='3'<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 3 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->DESCRIBE cliente<-
+->SELECT idCliente, nombre FROM cliente ORDER BY nombre<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 1<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 1<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 3 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 25 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='25'<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-52-2290' AND proveedor = 18 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='18'<-
+->SELECT precioprov.precio, articulo.idArticulo, articulo.nombre, articulo.unidad, articulo.unidadA, articulo.factor, articulo.linea FROM ( precioprov INNER JOIN articulo ON articulo.idArticulo = precioprov.articulo )  WHERE precioprov.articulo='3007' AND precioprov.proveedor='18'<-
+->SELECT ocm.id, ocm.idOC FROM ocm WHERE status < 2<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->SELECT ocm.* FROM ocm WHERE ocm.idOC='19-50-2288'<-
+->SELECT cliente.* FROM cliente WHERE cliente.idCliente='26'<-
+->SELECT unidad.* FROM unidad WHERE unidad.cliente='26'<-
+->SELECT bomocm.* FROM bomocm WHERE bomocm.OC='19-50-2288'<-
+->SELECT articulo.* FROM articulo WHERE articulo.idArticulo='Queso amarillo'<-
+->SELECT 
+	    id, 
+	    idOC, 
+	    fecha, 
+	    fechaI, 
+	    fechaF, 
+	    (SELECT nombre FROM cliente WHERE idCliente = cliente LIMIT 1) AS cliente, 
+	    status, 
+	    (SELECT nombre FROM usuario WHERE idUser = ocm.usuario LIMIT 1) AS usuario
+	    FROM ocm WHERE 1 AND fecha > '2018-12-28' ORDER BY idoc DESC<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->DESCRIBE proveedor<-
+->SELECT idProveedor, nombre FROM proveedor<-
+->DESCRIBE cliente<-
+->SELECT idCliente, nombre FROM cliente ORDER BY nombre<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 1<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 1<-
+->DESCRIBE bomocm<-
+->SELECT OC, cliente, unidad, articulo, linea, cantidad, proveedor, presentacion, factor, costoU, costoT FROM bomocm WHERE OC = '19-53-2290' AND proveedor = 3 ORDER BY proveedor, linea, articulo, unidad<-
+->SELECT precioprov.articulo, articulo.nombre FROM ( precioprov INNER JOIN articulo ON precioprov.articulo = articulo.idArticulo )  WHERE proveedor='3'<-
+->SELECT precioprov.precio, articulo.idArticulo, articulo.nombre, articulo.unidad, articulo.unidadA, articulo.factor, articulo.linea FROM ( precioprov INNER JOIN articulo ON articulo.idArticulo = precioprov.articulo )  WHERE precioprov.articulo='2006' AND precioprov.proveedor='3'<-
+->SELECT MAX( id ) as last_id FROM ocm<-
+->DESCRIBE cliente<-
+->SELECT idCliente, nombre FROM cliente ORDER BY nombre<-
+->DESCRIBE unidad<-
+->SELECT idUnidad FROM unidad WHERE cliente = 27<-
+->DESCRIBE unidad<-
+->SELECT idUnidad, unidad FROM unidad WHERE cliente = 27<-

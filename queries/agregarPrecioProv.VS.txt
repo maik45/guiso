@@ -1,0 +1,926 @@
+S 5.00
+Begin VB.Form mProvPrecioA 
+   BackColor       =   &H00FFFFFF&
+   Caption         =   "JACE COMEDORES - SISTEMA DE CONTROL DE COMEDORES"
+   ClientHeight    =   9690
+   ClientLeft      =   60
+   ClientTop       =   450
+   ClientWidth     =   15240
+   Icon            =   "mProvPrecioA.frx":0000
+   LinkTopic       =   "Form1"
+   Moveable        =   0   'False
+   ScaleHeight     =   9690
+   ScaleWidth      =   15240
+   Begin VB.CommandButton Registrar 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "Registrar"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   12600
+      Style           =   1  'Graphical
+      TabIndex        =   7
+      Top             =   7680
+      Width           =   1815
+   End
+   Begin VB.TextBox precioT 
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   4080
+      MaxLength       =   150
+      TabIndex        =   3
+      Top             =   3480
+      Width           =   8415
+   End
+   Begin VB.TextBox infoT 
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      IMEMode         =   3  'DISABLE
+      Left            =   4080
+      MaxLength       =   150
+      TabIndex        =   6
+      Top             =   6120
+      Width           =   8415
+   End
+   Begin VB.Frame Frame1 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "Ingresa Precios de Artículos a Proveedores"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   6855
+      Left            =   1080
+      TabIndex        =   8
+      Top             =   1560
+      Width           =   13455
+      Begin VB.TextBox factorT 
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         IMEMode         =   3  'DISABLE
+         Left            =   3000
+         MaxLength       =   150
+         TabIndex        =   5
+         Text            =   "0"
+         Top             =   3600
+         Width           =   8415
+      End
+      Begin VB.ComboBox unidadAC 
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         ItemData        =   "mProvPrecioA.frx":030A
+         Left            =   3000
+         List            =   "mProvPrecioA.frx":0323
+         TabIndex        =   4
+         Text            =   "NINGUNA"
+         Top             =   2760
+         Width           =   8415
+      End
+      Begin VB.TextBox medidaT 
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   3000
+         MaxLength       =   150
+         TabIndex        =   2
+         Top             =   1440
+         Width           =   8415
+      End
+      Begin VB.ComboBox articuloC 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         ItemData        =   "mProvPrecioA.frx":0364
+         Left            =   3000
+         List            =   "mProvPrecioA.frx":0371
+         TabIndex        =   1
+         Top             =   960
+         Width           =   8415
+      End
+      Begin VB.ComboBox proveedorC 
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   360
+         ItemData        =   "mProvPrecioA.frx":038D
+         Left            =   3000
+         List            =   "mProvPrecioA.frx":039A
+         TabIndex        =   0
+         Top             =   480
+         Width           =   8415
+      End
+      Begin VB.Label Label9 
+         BackStyle       =   0  'Transparent
+         Caption         =   "El precio que aparece, es el precio por de la Presentación y en caso de no tener presentación es el precio por Unidad de Medida"
+         Height          =   495
+         Left            =   3000
+         TabIndex        =   20
+         Top             =   2280
+         Width           =   8295
+      End
+      Begin VB.Label Label8 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Si la cantidad de unidades permanece en Cero, la presentación se considerará como ""NINGUNA"""
+         Height          =   375
+         Left            =   3000
+         TabIndex        =   19
+         Top             =   4080
+         Width           =   8295
+      End
+      Begin VB.Label Label6 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Utilice unidad de medida ""NINGUNA"" para asignar un precio a un producto en su Unidad de Medida Original"
+         Height          =   375
+         Left            =   3000
+         TabIndex        =   18
+         Top             =   3240
+         Width           =   8295
+      End
+      Begin VB.Label Label4 
+         BackStyle       =   0  'Transparent
+         Caption         =   "* Cantidad de unidades en la presentación:"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         Left            =   480
+         TabIndex        =   17
+         Top             =   3600
+         Width           =   2415
+      End
+      Begin VB.Label Label3 
+         BackStyle       =   0  'Transparent
+         Caption         =   "* Presentación:"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   480
+         TabIndex        =   16
+         Top             =   2880
+         Width           =   2295
+      End
+      Begin VB.Label Label1 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Los precios asociados a los proveedores deberán de actualizarse individualmente."
+         Height          =   375
+         Left            =   480
+         TabIndex        =   15
+         Top             =   6240
+         Width           =   10815
+      End
+      Begin VB.Label Label2 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Unidad de medida:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   480
+         TabIndex        =   14
+         Top             =   1440
+         Width           =   2055
+      End
+      Begin VB.Label Label15 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Información adicional:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   480
+         TabIndex        =   13
+         Top             =   4560
+         Width           =   2415
+      End
+      Begin VB.Label Label10 
+         BackStyle       =   0  'Transparent
+         Caption         =   "* Son campos obligatorios."
+         Height          =   255
+         Left            =   480
+         TabIndex        =   12
+         Top             =   5640
+         Width           =   10455
+      End
+      Begin VB.Label Label7 
+         BackStyle       =   0  'Transparent
+         Caption         =   "* Precio:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   480
+         TabIndex        =   11
+         Top             =   1920
+         Width           =   2295
+      End
+      Begin VB.Label Label5 
+         BackStyle       =   0  'Transparent
+         Caption         =   "* Artículo:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   480
+         TabIndex        =   10
+         Top             =   960
+         Width           =   2055
+      End
+      Begin VB.Label Label11 
+         BackStyle       =   0  'Transparent
+         Caption         =   "* Proveedor:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   480
+         TabIndex        =   9
+         Top             =   480
+         Width           =   2415
+      End
+   End
+   Begin VB.Label salirB 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "Regresar"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800080&
+      Height          =   495
+      Left            =   240
+      TabIndex        =   21
+      Top             =   8880
+      Width           =   1935
+   End
+   Begin VB.Image Image3 
+      Height          =   1185
+      Left            =   0
+      Picture         =   "mProvPrecioA.frx":03B6
+      Stretch         =   -1  'True
+      Top             =   8520
+      Width           =   15255
+   End
+   Begin VB.Image Image2 
+      Height          =   1050
+      Left            =   120
+      Picture         =   "mProvPrecioA.frx":1066
+      Top             =   120
+      Width           =   1605
+   End
+   Begin VB.Image Image1 
+      Height          =   1185
+      Left            =   0
+      Picture         =   "mProvPrecioA.frx":1992
+      Stretch         =   -1  'True
+      Top             =   0
+      Width           =   15255
+   End
+End
+Attribute VB_Name = "mProvPrecioA"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+' #################################################################################################
+'
+'   frmMain.frm     : implementation file
+'
+'   Copyright       : LESA S.A. DE C.V.
+'
+' #################################################################################################
+
+Dim conn As New ADODB.Connection
+Dim RS As New ADODB.Recordset
+Dim SQL_pos
+
+Private Sub salirB_Click()
+    If tmenu = 0 Then
+        Menu.Show
+    End If
+    If tmenu = 3 Then
+        mRecetaA.Show
+    End If
+    Unload Me
+End Sub
+
+Private Sub Registrar_Click()
+    Dim proveedor, articulo, mayoreo, menudeo, otro, info, activo, unidadA, factor
+    
+    proveedor = proveedorC.Text
+    articulo = articuloC.Text
+    precio = precioT.Text
+    info = infoT.Text
+    unidadA = unidadAC.Text
+    factor = factorT.Text
+    
+    fecha = Now()
+    anio = Year(fecha)
+    mes = Month(fecha)
+    dia = Day(fecha)
+    fecha = anio & "/" & mes & "/" & dia
+    
+    ban = 0
+    info = UCase(info)
+    ' Validación de los campos obligatorios
+    If proveedor = "" Or articulo = "" Or precio = "" Or unidadA = "" Or factor = "" Then
+        MsgBox ("Asegúrese haya ingresado información en todos los campos obligatorios")
+    Else
+        If unidadA = "NINGUNA" Or factor = 0 Then
+            unidadA = ""
+            factor = 0
+            factorT.Text = 0
+            unidadAC.Text = "NINGUNA"
+        Else
+            precio = precio / factor
+            precio = Round(precio, 2)
+        End If
+        
+        ' ******** Se busca el código del proveedor ***********
+        SQL_pos = " SELECT idProveedor, nombre " & _
+            " FROM proveedor WHERE nombre = '" & proveedor & "' "
+        
+        'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+        conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+        conn.Open
+        
+        Set RS = conn.Execute(SQL_pos)
+        
+        If Not RS.EOF Then
+            proveedor = RS!idProveedor
+            ban = ban + 1
+        End If
+        'RS.Close
+        conn.Close
+        
+        ' ******* Se busca el código del artículo **********
+        SQL_pos = " SELECT idArticulo, nombre " & _
+            " FROM articulo WHERE nombre = '" & articulo & "' "
+    
+        'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+        conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+        conn.Open
+        
+        Set RS = conn.Execute(SQL_pos)
+        
+        If Not RS.EOF Then
+            articulo = RS!idArticulo
+            ban = ban + 1
+        End If
+        'RS.Close
+        conn.Close
+        
+        ' Si ban no es 2 entonces el artículo o el proveedor no son válidos
+        If ban <> 2 Then
+            MsgBox ("El artículo o el proveedor no están registrados. Verifique nuevamente por favor")
+        Else
+        
+            ' ** Se busca si la combinación proveedor-artículo-unidadA-factor ya habían sido agregados **
+            'SQL_pos = " SELECT proveedor, articulo " & _
+            '    " FROM precioProv " & _
+            '    " WHERE proveedor =  '" & proveedor & "' AND articulo =  '" & articulo & "' AND unidadA =  '" & unidadA & "' AND factor =  '" & factor & "' "
+                
+            SQL_pos = " SELECT proveedor, articulo " & _
+                " FROM precioProv " & _
+                " WHERE proveedor =  '" & proveedor & "' AND articulo =  '" & articulo & "' "
+                
+                'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+                conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+                                                                            
+            conn.Open
+            Set RS = conn.Execute(SQL_pos)
+            
+            ' Si la combinación no existe se hace el INSERT
+            If RS.EOF Then
+                'RS.Close
+                conn.Close
+                
+                activo = 1
+                'SQL_pos = " Insert Into precioProv " & _
+                '    " ( proveedor, articulo, precio, unidadA, factor, info, fecha, activo ) " & _
+                '    " values( '" & proveedor & "', '" & articulo & "', '" & precio & "', '" & unidadA & "', '" & factor & "', '" & info & "', '" & fecha & "', '" & activo & "' )"
+                    
+                SQL_pos = " Insert Into precioProv " & _
+                    " ( proveedor, articulo, precio, info, fecha, activo ) " & _
+                    " values( '" & proveedor & "', '" & articulo & "', '" & precio & "', '" & info & "', '" & fecha & "', '" & activo & "' )"
+                     
+                    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+                    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+                                                                                
+                conn.Open
+                Set RS = conn.Execute(SQL_pos)
+                'RS.Close
+                conn.Close
+                
+                ' Se inserta en la bitácora de Prov-Precio-Fecha
+                'SQL_pos = " Insert Into precioProvBit " & _
+                '    " ( proveedor, articulo, precio, unidadA, factor, fecha ) " & _
+                '    " values( '" & proveedor & "', '" & articulo & "', '" & precio & "', '" & unidadA & "', '" & factor & "', '" & fecha & "' )"
+                    
+                SQL_pos = " Insert Into precioProvBit " & _
+                    " ( proveedor, articulo, precio, fecha ) " & _
+                    " values( '" & proveedor & "', '" & articulo & "', '" & precio & "', '" & fecha & "' )"
+                    
+                    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+                    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+                                                                                
+                conn.Open
+                Set RS = conn.Execute(SQL_pos)
+                'RS.Close
+                conn.Close
+                
+                ' Se busca cual es valor mínimo en la tabla precioProv
+                SQL_pos = " SELECT MIN(precio) AS precioMin " & _
+                    " FROM precioProv " & _
+                    " WHERE articulo =  '" & articulo & "' AND activo = '" & activo & "' "
+                    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+                    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+                                                                                
+                conn.Open
+                Set RS = conn.Execute(SQL_pos)
+                
+                ' Si la combinación existe, significa que ya hay precios para este Artículo
+                If Not RS.EOF Then
+                    'RS.Close
+                    precioTabla = RS!precioMin
+                    ' Si el precio de la tabla es menor que el que estamos dando de alta se queda el de la tabla
+                    precio = precio * 1
+                    If precio > precioTabla Then
+                        precio = precioTabla
+                    End If
+                End If
+                conn.Close
+                
+                SQL_pos = " UPDATE articulo " & _
+                           " SET costo = '" & precio & "', fechaMod = '" & fecha & "' " & _
+                           " WHERE idArticulo = '" & articulo & "' "
+                
+                'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+                conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+                conn.Open
+                Set RS = conn.Execute(SQL_pos)
+                 
+                'RS.Close
+                conn.Close
+                     
+                MsgBox ("El precio del artículo al proveedor ha sido asignado")
+            
+            ' La combinación existe se hace un update del registro
+            Else
+                activo = 1
+                conn.Close
+                ' Se modifica la Base de Datos
+                'SQL_pos = " UPDATE precioProv " & _
+                '          " SET precio = '" & precio & "', " & _
+                '          " info = '" & info & "', fecha = '" & fecha & "',  activo = '" & activo & "' " & _
+                '          " WHERE proveedor = '" & proveedor & "' " & _
+                '          " AND articulo = '" & articulo & "'" & _
+                '          " AND unidadA = '" & unidadA & "'" & _
+                '          " AND factor = '" & factor & "'"
+               
+                SQL_pos = " UPDATE precioProv " & _
+                          " SET precio = '" & precio & "', " & _
+                          " info = '" & info & "', fecha = '" & fecha & "',  activo = '" & activo & "' " & _
+                          " WHERE proveedor = '" & proveedor & "' " & _
+                          " AND articulo = '" & articulo & "'"
+                          
+                'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+                conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+                conn.Open
+                Set RS = conn.Execute(SQL_pos)
+                
+                'RS.Close
+                conn.Close
+                
+                ' Se inserta en la bitácora de Prov-Precio-Fecha
+                'SQL_pos = " Insert Into precioProvBit " & _
+                '    " ( proveedor, articulo, precio, unidadA, factor, fecha ) " & _
+                '    " values( '" & proveedor & "', '" & articulo & "', '" & precio & "', '" & unidadA & "', '" & factor & "', '" & fecha & "' )"
+                    
+                SQL_pos = " Insert Into precioProvBit " & _
+                    " ( proveedor, articulo, precio, fecha ) " & _
+                    " values( '" & proveedor & "', '" & articulo & "', '" & precio & "', '" & fecha & "' )"
+                    
+                    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+                    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+                                                                                
+                conn.Open
+                Set RS = conn.Execute(SQL_pos)
+                'RS.Close
+                conn.Close
+                
+               ' Se busca cual es valor mínimo en la tabla PrecioProv
+                SQL_pos = " SELECT MIN(precio) AS precioMin " & _
+                    " FROM precioProv " & _
+                    " WHERE articulo =  '" & articulo & "' AND activo = '" & activo & "' "
+                    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+                    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+                                                                                
+                conn.Open
+                Set RS = conn.Execute(SQL_pos)
+                
+                ' Si la combinación existe, significa que ya hay precios para este Artículo
+                If Not RS.EOF Then
+                    'RS.Close
+                    precioTabla = RS!precioMin
+                    ' Si el precio de la tabla es menor que el que estamos dando de alta se queda el de la tabla
+                    precio = precio * 1
+                    If precio > precioTabla Then
+                        precio = precioTabla
+                    End If
+                End If
+                conn.Close
+                
+                SQL_pos = " UPDATE articulo " & _
+                          " SET costo = '" & precio & "', fechaMod = '" & fecha & "' " & _
+                          " WHERE idArticulo = '" & articulo & "' "
+                          
+               'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+               conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+               conn.Open
+               Set RS = conn.Execute(SQL_pos)
+                
+               'RS.Close
+               conn.Close
+                
+                MsgBox ("El precio del artículo al proveedor ha sido asignado")
+            End If
+            
+            ' Se limpian los campos
+            limpia
+        End If
+    End If
+End Sub
+
+Private Sub proveedorC_Click()
+    articuloC.Enabled = True
+    articuloC.Text = ""
+    precioT.Text = 0
+End Sub
+
+Private Sub unidadAC_Click()
+    nombre = articuloC.Text
+    proveedor = proveedorC.Text
+    'unidadAC.Enabled = True
+    
+    activo = 1
+    
+    ' ******************* Se busca la Presentación **********************
+    presentacion = unidadAC.Text
+    If presentacion = "NINGUNA" Then
+        presentacion = ""
+    End If
+    
+    ' ******************** Se busca el código del artículo **************
+    SQL_pos = " SELECT idArticulo, nombre, linea, unidad, costo  " & _
+            " FROM articulo WHERE nombre = '" & nombre & "' "
+    
+    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+    conn.Open
+    
+    Set RS = conn.Execute(SQL_pos)
+
+    If Not RS.EOF Then
+        idArticulo = RS!idArticulo
+        medidaT.Text = RS!unidad
+    End If
+    'RS.Close
+    conn.Close
+    
+    ' ******************** Se busca el código del proveedor **************
+    SQL_pos = " SELECT idProveedor, nombre " & _
+            " FROM proveedor WHERE nombre = '" & proveedor & "' "
+    
+    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+    conn.Open
+    
+    Set RS = conn.Execute(SQL_pos)
+
+    If Not RS.EOF Then
+        idProveedor = RS!idProveedor
+    End If
+    'RS.Close
+    conn.Close
+    
+    If idProveedor <> "" And idArticulo <> "" Then
+        SQL_pos = " SELECT proveedor, articulo, precio, unidadA, factor " & _
+                " FROM precioProv " & _
+                " WHERE proveedor = '" & idProveedor & "' " & _
+                " AND articulo = '" & idArticulo & "' " & _
+                " AND unidadA = '" & presentacion & "' " & _
+                " AND activo = '" & activo & "' "
+        
+        'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+        conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+        conn.Open
+        
+        Set RS = conn.Execute(SQL_pos)
+        
+        If Not RS.EOF Then
+            factor = RS!factor
+            precio = RS!precio
+            
+            If presentacion = "" Or factor = 0 Then
+                precioT.Text = RS!precio
+            Else
+                precio = precio * factor
+                precioT.Text = precio
+            End If
+        Else
+            precioT.Text = 0
+            MsgBox ("La combinación Proveedor-Artículo-Presentación no existe. Ahora puede ingresarla")
+        End If
+        'RS.Close
+        conn.Close
+    End If
+    
+
+End Sub
+
+Private Sub articuloC_Click()
+    nombre = articuloC.Text
+    proveedor = proveedorC.Text
+    'unidadAC.Enabled = True
+    
+    activo = 1
+    
+    ' ******************* Se busca la Presentación **********************
+    'presentacion = unidadAC.Text
+    'If presentacion = "NINGUNA" Then
+    '    presentacion = ""
+    'End If
+    
+    ' ******************** Se busca el código del artículo **************
+    'SQL_pos = " SELECT idArticulo, nombre, linea, unidad, costo  " & _
+    '        " FROM articulo WHERE nombre = '" & nombre & "' "
+    
+    SQL_pos = " SELECT idArticulo, nombre, linea, unidad, unidadA, factor, costo  " & _
+            " FROM articulo WHERE nombre = '" & nombre & "' "
+    
+    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+    conn.Open
+    
+    Set RS = conn.Execute(SQL_pos)
+
+    If Not RS.EOF Then
+        idArticulo = RS!idArticulo
+        medidaT.Text = RS!unidad
+        factor = RS!factor
+        factorT.Text = factor
+        presentacion = RS!unidadA
+        If presentacion = "" Then
+            unidadAC.Text = "NINGUNA"
+        Else
+            unidadAC.Text = presentacion
+        End If
+    End If
+    'RS.Close
+    conn.Close
+    
+    ' ******************** Se busca el código del proveedor **************
+    SQL_pos = " SELECT idProveedor, nombre " & _
+            " FROM proveedor WHERE nombre = '" & proveedor & "' "
+    
+    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+    conn.Open
+    
+    Set RS = conn.Execute(SQL_pos)
+
+    If Not RS.EOF Then
+        idProveedor = RS!idProveedor
+    End If
+    'RS.Close
+    conn.Close
+    
+    If idProveedor <> "" And idArticulo <> "" Then
+    '    SQL_pos = " SELECT proveedor, articulo, precio, unidadA, factor " & _
+    '            " FROM precioProv " & _
+    '            " WHERE proveedor = '" & idProveedor & "' " & _
+    '            " AND articulo = '" & idArticulo & "' " & _
+    '            " AND unidadA = '" & presentacion & "' " & _
+    '            " AND activo = '" & activo & "' "
+        
+         SQL_pos = " SELECT proveedor, articulo, precio " & _
+                " FROM precioProv " & _
+                " WHERE proveedor = '" & idProveedor & "' " & _
+                " AND articulo = '" & idArticulo & "' " & _
+                " AND activo = '" & activo & "' "
+       
+        
+        'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+        conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+        conn.Open
+        
+        Set RS = conn.Execute(SQL_pos)
+        
+        If Not RS.EOF Then
+            'factor = RS!factor
+            precio = RS!precio
+            
+            If presentacion = "" Or factor = 0 Then
+                precioT.Text = RS!precio
+            Else
+                precio = precio * factor
+                precioT.Text = precio
+            End If
+        Else
+            precioT.Text = 0
+            MsgBox ("La combinación Proveedor-Artículo no existe. Ahora puede ingresarla")
+        End If
+        'RS.Close
+        conn.Close
+    End If
+    
+End Sub
+
+Private Sub Form_Load()
+    ' ************************************* NOMBRE ********************************************
+    SQL_pos = " SELECT usuario, nombre, rol " & _
+            " FROM usuario WHERE usuario = '" & lUser & "'"
+
+    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+    conn.Open
+   
+    Set RS = conn.Execute(SQL_pos)
+    On Error Resume Next
+    nombre = RS!nombre
+    rol = RS!rol
+    
+    RS.Close
+    conn.Close
+    limpia
+End Sub
+
+Private Sub limpia()
+    ' Se limpian los campos
+    proveedorC.Text = ""
+    articuloC.Text = ""
+    articuloC.Enabled = False
+    precioT.Text = ""
+    infoT.Text = ""
+    medidaT.Text = ""
+    unidadAC.Text = "NINGUNA"
+    unidadAC.Enabled = False
+    factorT.Text = 0
+    
+    activo = 1
+    ' Combos
+    SQL_pos = " SELECT idProveedor, nombre " & _
+            " FROM proveedor WHERE activo = '" & activo & "' ORDER BY nombre "
+    
+    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+    conn.Open
+    
+    Set RS = conn.Execute(SQL_pos)
+    con = 0
+    proveedorC.Clear
+    While Not RS.EOF
+        nombre = Trim(RS!nombre)
+        proveedorC.AddItem (nombre)
+        RS.MoveNext
+    Wend
+    'RS.Close
+    conn.Close
+    
+    SQL_pos = " SELECT idArticulo, nombre " & _
+            " FROM articulo WHERE activo = '" & activo & "' ORDER BY nombre "
+    
+    'conn.ConnectionString = "DSN=encuestasDIA;UID=cwedwp;PWD=cwedwppass"
+    conn.ConnectionString = "DSN=jace;UID=pereza15;PWD=yoiloto"
+    conn.Open
+    
+    Set RS = conn.Execute(SQL_pos)
+    con = 0
+    articuloC.Clear
+    While Not RS.EOF
+        nombre = Trim(RS!nombre)
+        articuloC.AddItem (nombre)
+        
+        RS.MoveNext
+    Wend
+    'RS.Close
+    conn.Close
+End Sub
